@@ -1,0 +1,26 @@
+import random
+import string
+
+def generar_palabras(cantidad):
+    palabras = []
+    for _ in range(cantidad):
+        letras = ''.join(random.choices(string.ascii_letters, k=4))
+        digitos = ''.join(random.choices(string.digits, k=2))
+        palabras.append(letras + digitos)
+    return palabras
+
+def main():
+    try:
+        cantidad = int(input("Ingrese la cantidad de palabras a generar: "))
+        if cantidad <= 0:
+            print("Por favor, ingrese un número positivo.")
+            return
+        palabras = generar_palabras(cantidad)
+        print("\nLista de palabras generadas:")
+        for palabra in palabras:
+            print(palabra)
+    except ValueError:
+        print("Entrada inválida. Por favor, ingrese un número entero.")
+
+if __name__ == "__main__":
+    main()
